@@ -2,17 +2,15 @@ window.onload=main
 
 var speed=0.1;
 
-function timeshow(hour,minute){
+function timeshow(data){
     var now = new Date();
 
     //parameters
     var year = now.getFullYear();
     var month = now.getMonth() + 1;//month of JavaScript is 0 to 11;
     var day = now.getDay();
-    $.getJSON("https://frt.hongo.wide.ad.jp/data.json", function (data) {
     var hour=data.hour;
     var minute=data.minute;
-    });
 
 
     var second = 0;
@@ -43,7 +41,7 @@ function timeshow(hour,minute){
     document.getElementById("second10").getElementsByTagName("p")[0].innerHTML=Math.floor(cnt_sec/10);
     document.getElementById("second1").getElementsByTagName("p")[0].innerHTML=cnt_sec%10;
 
-    setTimeout(`timeshow(${hour},${minute})`,10);
+    setTimeout(`$.getJSON("https://frt.hongo.wide.ad.jp/data.json", timeshow)`,10);
 
 
 }
@@ -59,6 +57,6 @@ function scroll(timestamp){
 }
 
 function main(){
-    timeshow(19,0);
+    $.getJSON("https://frt.hongo.wide.ad.jp/data.json", timeshow);
     requestAnimationFrame(scroll);
 };
