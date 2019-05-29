@@ -58,7 +58,7 @@ function scroll(timestamp){
 
 function message(data){
     console.log(data.text);
-    document.getElementById("announce").innnerHTML="";
+    $("#announce").text("");
     for(var i in data.text){
         $("#announce").append('<div class="text"><p>'+data.text[i]+'</p></div>')
     }
