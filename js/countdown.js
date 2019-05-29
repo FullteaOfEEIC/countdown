@@ -2,13 +2,17 @@ window.onload=main
 
 var speed=0.1;
 
-function timeshow(hour,minute){
+function timeshow(data){
     var now = new Date();
 
     //parameters
     var year = now.getFullYear();
     var month = now.getMonth() + 1;//month of JavaScript is 0 to 11;
     var day = now.getDay();
+    var hour=data.hour;
+    var minute=data.minute;
+
+
     var second = 0;
 
 
@@ -37,7 +41,7 @@ function timeshow(hour,minute){
     document.getElementById("second10").getElementsByTagName("p")[0].innerHTML=Math.floor(cnt_sec/10);
     document.getElementById("second1").getElementsByTagName("p")[0].innerHTML=cnt_sec%10;
 
-    setTimeout(`timeshow(${hour},${minute})`,10);
+    setTimeout(`$.getJSON("https://frt.hongo.wide.ad.jp/data.json", timeshow)`,100);
 
 
 }
@@ -52,14 +56,17 @@ function scroll(timestamp){
 
 }
 
+function message(data){
+    $("#announce").text("");
+    for(var i in data.text){
+        $("#announce").append('<div class="text"><p>'+data.text[i]+'</p></div>')
+    }
+    setTimeout(`$.getJSON("https://frt.hongo.wide.ad.jp/data.json", message)`,10000);
+
+}
+
 function main(){
-    var requestURL="https://frt.hongo.wide.ad.jp/data.json";
-    $.getJSON(requestURL,function(data){
-        console.log("hoge");
-        console.log(data);
-    });
-    timeshow(19,30);
+    $.getJSON("https://frt.hongo.wide.ad.jp/data.json", timeshow);
+    $.getJSON("https://frt.hongo.wide.ad.jp/data.json", message);
     requestAnimationFrame(scroll);
-
-
 };
