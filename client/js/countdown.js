@@ -1,13 +1,14 @@
 window.onload=main
-function timeshow(){
+
+var speed=0.1;
+
+function timeshow(hour,minute){
     var now = new Date();
 
     //parameters
     var year = now.getFullYear();
     var month = now.getMonth() + 1;//month of JavaScript is 0 to 11;
     var day = now.getDay();
-    var hour = 19;
-    var minute = 30;
     var second = 0;
 
 
@@ -36,7 +37,7 @@ function timeshow(){
     document.getElementById("second10").getElementsByTagName("p")[0].innerHTML=Math.floor(cnt_sec/10);
     document.getElementById("second1").getElementsByTagName("p")[0].innerHTML=cnt_sec%10;
 
-    setTimeout("timeshow()",10);
+    setTimeout(`timeshow(${hour},${minute})`,10);
 
 
 }
@@ -52,6 +53,6 @@ function scroll(timestamp){
 }
 
 function main(){
-    timeshow();
+    timeshow(19,30);
     requestAnimationFrame(scroll);
 };
