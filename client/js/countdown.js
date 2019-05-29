@@ -56,7 +56,17 @@ function scroll(timestamp){
 
 }
 
+function message(data){
+    console.log(data.text);
+    document.getElementById("announce").innnerHTML="";
+    for(var i in data.text){
+        $("#announce").append('<div class="text"><p>'+i+'</div>')
+    }
+
+}
+
 function main(){
     $.getJSON("https://frt.hongo.wide.ad.jp/data.json", timeshow);
+    $.getJSON("https://frt.hongo.wide.ad.jp/data.json", message);
     requestAnimationFrame(scroll);
 };
