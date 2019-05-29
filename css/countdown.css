@@ -1,0 +1,17 @@
+#counter {
+  width: 80%;
+  margin: auto auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #counter .number {
+    float: left;
+    width: 18%;
+    text-align: center; }
+  #counter .colon {
+    float: left;
+    width: 5%;
+    text-align: center; }
+  #counter p {
+    font-size: 20vw; }

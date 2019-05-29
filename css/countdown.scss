@@ -1,0 +1,29 @@
+#counter{
+    width:80%;
+    margin: auto auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .number{
+        float:left;
+        width:18%;
+        text-align: center;
+    }
+
+    .colon{
+        float:left;
+        width:5%;
+        text-align: center;
+    }
+
+    p{
+        font-size: 20vw;
+    }
+
+
+
+
+}
