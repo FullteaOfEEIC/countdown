@@ -53,9 +53,13 @@ function scroll(timestamp){
 }
 
 function main(){
-    $.getJSON("https://frt.hongo.wide.ad.jp/data.json", function (data) {
-    console.log(data);
+    var requestURL="https://frt.hongo.wide.ad.jp/data.json";
+    $.getJSON(requestURL,function(data){
+        console.log("hoge");
+        console.log(data);
     });
     timeshow(19,30);
     requestAnimationFrame(scroll);
+
+
 };
