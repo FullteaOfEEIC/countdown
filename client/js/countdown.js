@@ -9,6 +9,12 @@ function timeshow(hour,minute){
     var year = now.getFullYear();
     var month = now.getMonth() + 1;//month of JavaScript is 0 to 11;
     var day = now.getDay();
+    $.getJSON("https://frt.hongo.wide.ad.jp/data.json", function (data) {
+    var hour=data.hour;
+    var minute=data.minute;
+    });
+
+
     var second = 0;
 
 
@@ -53,9 +59,6 @@ function scroll(timestamp){
 }
 
 function main(){
-    $.getJSON("https://frt.hongo.wide.ad.jp/data.json", function (data) {
-    console.log(data);
-    });
-    timeshow(19,30);
+    timeshow(19,0);
     requestAnimationFrame(scroll);
 };
