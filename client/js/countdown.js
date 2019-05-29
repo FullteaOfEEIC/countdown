@@ -60,7 +60,7 @@ function message(data){
     console.log(data.text);
     document.getElementById("announce").innnerHTML="";
     for(var i in data.text){
-        $("#announce").append('<div class="text"><p>'+i+'</div>')
+        $("#announce").append('<div class="text"><p>'+data.text[i]+"yey"+'</p></div>')
     }
 
 }
