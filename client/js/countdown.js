@@ -41,7 +41,7 @@ function timeshow(data){
     document.getElementById("second10").getElementsByTagName("p")[0].innerHTML=Math.floor(cnt_sec/10);
     document.getElementById("second1").getElementsByTagName("p")[0].innerHTML=cnt_sec%10;
 
-    setTimeout(`$.getJSON("https://frt.hongo.wide.ad.jp/data.json", timeshow)`,10);
+    setTimeout(`$.getJSON("https://frt.hongo.wide.ad.jp/data.json", timeshow)`,100);
 
 
 }
@@ -62,7 +62,7 @@ function message(data){
     for(var i in data.text){
         $("#announce").append('<div class="text"><p>'+data.text[i]+'</p></div>')
     }
-    setTimeout(`$.getJSON("https://frt.hongo.wide.ad.jp/data.json", message)`,100);
+    setTimeout(`$.getJSON("https://frt.hongo.wide.ad.jp/data.json", message)`,10000);
 
 }
 
