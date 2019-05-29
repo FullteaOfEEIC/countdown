@@ -41,13 +41,17 @@ function timeshow(){
 
 }
 
+function scroll(timestamp){
+    const screenWidth=window.parent.screen.width;
+    const target=document.getElementById("announce");
+    var objectWidth=target.scrollWidth;
+    var X = (-0.1*timestamp)%(screenWidth+objectWidth)+screenWidth;
+    target.style.transform = `translate(${X}px)`;
+    requestAnimationFrame(scroll)
+
+}
+
 function main(){
     timeshow();
-    
-
-    console.log(document.getElementById("announce").getElementsByClassName("text")[0]);
-}
-$(document).ready(function() {
-  $('#announce').marquee();
-
-});
+    requestAnimationFrame(scroll);
+};
