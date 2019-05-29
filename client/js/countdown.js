@@ -62,7 +62,7 @@ function message(data){
     for(var i in data.text){
         $("#announce").append('<div class="text"><p>'+data.text[i]+'</p></div>')
     }
-    setTimeout(`$.getJSON("https://frt.hongo.wide.ad.jp/data.json", message)`,10);
+    setTimeout(`$.getJSON("https://frt.hongo.wide.ad.jp/data.json", message)`,100);
 
 }
 
