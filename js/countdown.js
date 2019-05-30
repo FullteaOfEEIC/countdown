@@ -18,7 +18,7 @@ function timeshow(data){
 
     var limit = new Date(year,month-1,day,hour,minute,second);
     if(limit<0){
-        return 1;
+        startAnimation();
     }
 
 
@@ -35,7 +35,7 @@ function timeshow(data){
 
 
 
-
+    document.getElementById("hour").getElementsByTagName("p")[0].innerHTML=Math.floor(cnt_hour%10);
     document.getElementById("minute10").getElementsByTagName("p")[0].innerHTML=Math.floor(cnt_min/10);
     document.getElementById("minute1").getElementsByTagName("p")[0].innerHTML=cnt_min%10;
     document.getElementById("second10").getElementsByTagName("p")[0].innerHTML=Math.floor(cnt_sec/10);
@@ -70,3 +70,9 @@ function main(){
     $.getJSON("./data.json", message);
     requestAnimationFrame(scroll);
 };
+
+
+function startAnimation(){
+    console.log("finished");
+    $("body").text("");
+}

@@ -2,10 +2,16 @@
 $hour=$_POST["hour"];
 $minute=$_POST["minute"];
 
-$json=array("hour"=>$hour,"minute"=>$minute,"text"=>array("東大大会だよ！","間もなく表彰式が始まります"));
+$text=array();
+for ($i=0;$i<10;$i++) {
+    if ($_POST["text$i"]!="") {
+        $text[]=$_POST["text$i"];
+    }
+}
 
-file_put_contents("./data.json",json_encode($json));
+$json=array("hour"=>$hour,"minute"=>$minute,"text"=>array($text));
+
+file_put_contents("./data.json", json_encode($json));
 
 
-echo "更新が完了しました。設定画面は<a href='./settings.html'>こちら</a>から戻ることができます。";
-?>
+echo "更新が完了しました。設定画面は<a href='./settings.php'>こちら</a>から戻ることができます。";
