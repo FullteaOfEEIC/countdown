@@ -58,8 +58,8 @@ function scroll(timestamp){
 
 function message(data){
     $("#announce").text("");
-    for(var i in data.text){
-        $("#announce").append('<div class="text"><p>'+data.text[i]+'</p></div>')
+    for(var i in data.text[0]){
+        $("#announce").append('<div class="text"><p>'+data.text[0][i]+'</p></div>')
     }
     setTimeout(`$.getJSON("./data.json", message)`,10000);
 
