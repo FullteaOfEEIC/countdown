@@ -1,7 +1,7 @@
 body {
   overflow: hidden; }
   body h1 {
-    font-size: 8vh; }
+    font-size: 5vw; }
   body svg {
     width: 100%;
     height: auto;
@@ -72,7 +72,8 @@ body {
         top: 46%;
         left: 10%;
         width: 80%;
-        height: auto; }
+        height: auto;
+        opacity: 0; }
     #animation #cloud .cloud3 {
       position: absolute;
       top: 69%;
