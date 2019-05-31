@@ -57,6 +57,7 @@ function scroll(timestamp) {
 }
 
 function message(data) {
+
     $("#announce").text("");
     for (var i in data.text[0]) {
         $("#announce").append('<div class="text"><p>' + data.text[0][i] + '</p></div>')
@@ -80,7 +81,7 @@ function startAnimation() {
 function fade(opacity) {
     document.getElementById("animation").style.opacity = opacity;
     if (opacity > 1) {
-        $("#announce").text("");
+        $("#announce").css({"width":0,"height":0,"opacity":0});
         $("#counter").text("");
         $("#mes").text("");
         return 0;
