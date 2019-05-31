@@ -80,6 +80,9 @@ function startAnimation() {
 function fade(opacity) {
     document.getElementById("animation").style.opacity = opacity;
     if (opacity > 1) {
+        $("#announce").text("");
+        $("#counter").text("");
+        $("#mes").text("");
         return 0;
     }
     setTimeout(`fade(` + (opacity + 0.01) + `)`, 10)

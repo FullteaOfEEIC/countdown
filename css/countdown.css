@@ -2,6 +2,9 @@ body {
   overflow: hidden; }
   body h1 {
     font-size: 8vh; }
+  body svg {
+    width: 100%;
+    height: auto; }
 
 #header {
   width: 100%;
@@ -50,3 +53,70 @@ body {
   height: 100%;
   background-color: white;
   opacity: 0; }
+  #animation #cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60vh;
+    opacity: 1; }
+    #animation #cloud .cloud4 {
+      position: absolute;
+      top: 2vh;
+      left: 15vw;
+      width: 70vw;
+      height: 60vh; }
+      #animation #cloud .cloud4 .text {
+        position: absolute;
+        top: 17vh;
+        left: 10%;
+        width: 80%;
+        height: auto; }
+    #animation #cloud .cloud3 {
+      position: absolute;
+      top: 47vh;
+      left: 30vw;
+      width: 8%;
+      height: auto; }
+    #animation #cloud .cloud2 {
+      position: absolute;
+      top: 54vh;
+      left: 38vw;
+      width: 6%;
+      height: auto; }
+  #animation #gunnma {
+    position: absolute;
+    top: 61vh;
+    left: 0;
+    width: 100vw;
+    height: 40vh; }
+    #animation #gunnma .face {
+      position: absolute;
+      width: 12vw;
+      height: auto;
+      top: 0;
+      left: 44vw; }
+    #animation #gunnma .hand {
+      position: absolute;
+      width: 16vw;
+      left: 42vw;
+      top: 17vh; }
+      #animation #gunnma .hand .right {
+        position: absolute;
+        width: 30%;
+        height: 100%;
+        top: 0;
+        left: 0; }
+      #animation #gunnma .hand .left {
+        position: absolute;
+        width: 30%;
+        height: 100%;
+        top: 0;
+        left: 70%; }
+  #animation .table {
+    position: absolute;
+    left: 0;
+    top: 82vh;
+    left: 10vw;
+    width: 80vw;
+    height: auto; }
