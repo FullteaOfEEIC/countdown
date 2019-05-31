@@ -67,11 +67,6 @@ function message(data) {
 }
 
 function main() {
-    document.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-    }, {
-        passive: false
-    });
     $.getJSON("./data.json", timeshow);
     $.getJSON("./data.json", message);
     requestAnimationFrame(scroll);
