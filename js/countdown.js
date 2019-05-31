@@ -67,6 +67,11 @@ function message(data) {
 }
 
 function main() {
+    document.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    }, {
+        passive: false
+    });
     $.getJSON("./data.json", timeshow);
     $.getJSON("./data.json", message);
     requestAnimationFrame(scroll);
@@ -83,91 +88,108 @@ function startAnimation() {
 function fade(opacity) {
     document.getElementById("animation").style.opacity = opacity;
     if (opacity > 1) {
-        $("#announce").css({"width":0,"height":0,"opacity":0});
+        $("#announce").css({
+            "width": 0,
+            "height": 0,
+            "opacity": 0
+        });
         $("#counter").text("");
         $("#mes").text("");
-        setTimeout(`rightHand(30)`,1000);
+        setTimeout(`rightHand(30)`, 1000);
         return 0;
     }
     setTimeout(`fade(` + (opacity + 0.01) + `)`, 10);
 }
 
-function rightHand(position){
-    if(position<0){
+function rightHand(position) {
+    if (position < 0) {
         leftHand(60);
         return 0;
     }
-    document.getElementsByClassName("right")[0].style.top=position+"%";
-    setTimeout(`rightHand(`+(position-0.2)+`)`,10);
+    document.getElementsByClassName("right")[0].style.top = position + "%";
+    setTimeout(`rightHand(` + (position - 0.2) + `)`, 10);
 
 }
 
-function leftHand(position){
-    if(position<0){
+function leftHand(position) {
+    if (position < 0) {
         face1(70);
         return 0;
     }
-    document.getElementsByClassName("left")[0].style.top=position+"%";
-    setTimeout(`leftHand(`+(position-0.6)+`)`,10);
+    document.getElementsByClassName("left")[0].style.top = position + "%";
+    setTimeout(`leftHand(` + (position - 0.6) + `)`, 10);
 
 }
 
-function face1(position){
-    if(position<20){
-        setTimeout(`face2(`+(position+0.8)+`)`,800);
+function face1(position) {
+    if (position < 20) {
+        setTimeout(`face2(` + (position + 0.8) + `)`, 800);
         return 0;
     }
-    document.getElementsByClassName("face")[0].style.top=position+"%";
-    setTimeout(`face1(`+(position-0.8)+`)`,10);
+    document.getElementsByClassName("face")[0].style.top = position + "%";
+    setTimeout(`face1(` + (position - 0.8) + `)`, 10);
 
 }
 
-function face2(position){
-    if(position>25){
-        setTimeout(`face3(`+(position-0.1)+`)`,300);
+function face2(position) {
+    if (position > 25) {
+        setTimeout(`face3(` + (position - 0.1) + `)`, 300);
         return 0;
     }
-    document.getElementsByClassName("face")[0].style.top=position+"%";
-    setTimeout(`face2(`+(position+0.1)+`)`,10);
-
-}
-function face3(position){
-    if(position<0){
-        setTimeout(`cloud2(0)`,800);
-        return 0;
-    }
-    document.getElementsByClassName("face")[0].style.top=position+"%";
-    setTimeout(`face3(`+(position-0.4)+`)`,10);
+    document.getElementsByClassName("face")[0].style.top = position + "%";
+    setTimeout(`face2(` + (position + 0.1) + `)`, 10);
 
 }
 
-function cloud2(opacity){
-    if(opacity>1){
-        document.getElementsByClassName("cloud2")[0].style.opacity=1;
-        setTimeout(`cloud3(0)`,400);
+function face3(position) {
+    if (position < 0) {
+        setTimeout(`cloud2(0)`, 800);
         return 0;
     }
-    document.getElementsByClassName("cloud2")[0].style.opacity=opacity;
-    setTimeout(`cloud2(`+(opacity+0.03)+`)`,10);
-
-}
-function cloud3(opacity){
-    if(opacity>1){
-        document.getElementsByClassName("cloud3")[0].style.opacity=1;
-        setTimeout(`cloud4(0)`,400);
-        return 0;
-    }
-    document.getElementsByClassName("cloud3")[0].style.opacity=opacity;
-    setTimeout(`cloud3(`+(opacity+0.03)+`)`,10);
+    document.getElementsByClassName("face")[0].style.top = position + "%";
+    setTimeout(`face3(` + (position - 0.4) + `)`, 10);
 
 }
 
-function cloud4(opacity){
-    if(opacity>1){
-        document.getElementsByClassName("cloud4")[0].style.opacity=1;
+function cloud2(opacity) {
+    if (opacity > 1) {
+        document.getElementsByClassName("cloud2")[0].style.opacity = 1;
+        setTimeout(`cloud3(0)`, 400);
         return 0;
     }
-    document.getElementsByClassName("cloud4")[0].style.opacity=opacity;
-    setTimeout(`cloud4(`+(opacity+0.02)+`)`,10);
+    document.getElementsByClassName("cloud2")[0].style.opacity = opacity;
+    setTimeout(`cloud2(` + (opacity + 0.03) + `)`, 10);
+
+}
+
+function cloud3(opacity) {
+    if (opacity > 1) {
+        document.getElementsByClassName("cloud3")[0].style.opacity = 1;
+        setTimeout(`cloud4(0)`, 400);
+        return 0;
+    }
+    document.getElementsByClassName("cloud3")[0].style.opacity = opacity;
+    setTimeout(`cloud3(` + (opacity + 0.03) + `)`, 10);
+
+}
+
+function cloud4(opacity) {
+    if (opacity > 1) {
+        document.getElementsByClassName("cloud4")[0].style.opacity = 1;
+        setTimeout(`title(0)`,40);
+        return 0;
+    }
+    document.getElementsByClassName("cloud4")[0].style.opacity = opacity;
+    setTimeout(`cloud4(` + (opacity + 0.02) + `)`, 10);
+
+}
+
+function title(opacity) {
+    if (opacity > 1) {
+        document.getElementsByClassName("title")[0].style.opacity = 1;
+        return 0;
+    }
+    document.getElementsByClassName("title")[0].style.opacity = opacity;
+    setTimeout(`title(` + (opacity + 0.04) + `)`, 10);
 
 }
