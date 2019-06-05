@@ -15,3 +15,4 @@ file_put_contents("./data.json", json_encode($json));
 
 
 echo "更新が完了しました。設定画面は<a href='./settings.php'>こちら</a>から戻ることができます。";
+?>
